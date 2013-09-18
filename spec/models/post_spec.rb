@@ -5,7 +5,7 @@ describe Post do
   context "valid new root" do
     let(:user) { User.create() }
     let(:post) { Post.create(
-                    user: user.id,
+                    user_id: user.id,
                     title: "First Title",
                     content: "Testing Content" )}
 
@@ -14,6 +14,7 @@ describe Post do
     end
 
     it "should have a root_id of nil" do
+      post.root_id.should be nil
     end
   end
 end
