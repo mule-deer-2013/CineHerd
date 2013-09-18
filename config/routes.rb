@@ -4,7 +4,7 @@ StackRails::Application.routes.draw do
 
   resources :sessions, only: [:create, :destroy]
 
-  resources :posts, only: [:index]
+  resources :posts, only: [:new, :create]
 
   root to: "posts#index"
 end
