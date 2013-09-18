@@ -15,7 +15,6 @@ group :test, :development do
   gem "rspec-rails", "~> 2.0"
   gem 'shoulda'
   gem 'capybara'
-  gem 'database_cleaner'
   gem 'factory_girl'
   gem 'faker'
 end
