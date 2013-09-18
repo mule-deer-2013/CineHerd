@@ -31,13 +31,14 @@ describe Post do
 
    it "should raise error if attributes missing" do
     post = Post.create()
-    post.errors.size.should
+    post.errors.size.should > 0
    end
 
    it "should not be saved if title is not unique" do
-     post = Post.create(:title => "First Title")
-     expect { second_post = Post.create(:title => "First Title")}.not_to change{Post.all.size}
+     post = Post.create(:user_id => 1, :title => "First Title", :content => "Bananas")
+     expect { second_post = Post.create(:user_id => 2, :title => "First Title", :content => "Cookie")}.not_to change{Post.all.size}
    end
+
 
 
   end
