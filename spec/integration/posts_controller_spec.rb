@@ -25,9 +25,13 @@ feature 'Posts' do
     end
 
     it "can redirect to post by clicking post title" do
+        post1 = Post.create(
+                    user_id: 3,
+                    title: "Groovy",
+                    content: "else")
       visit '/'
-      click_link(title)
-      page.current_path.should == post_path(post.id)
+      click_link("Groovy")
+      page.current_path.should == post_path(post1.id)
     end
   end
 
