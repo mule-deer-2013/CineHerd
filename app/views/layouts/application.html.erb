@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>StackRails</title>
+  <title>CineHerd</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
-
-</body>
+  <body>
+    <%= render 'layouts/navbar' %>
+    <div class='my_container'>
+      <div class='container'>
+        <%= yield %>
+      </div>
+    </div>
+  </body>
 </html>
