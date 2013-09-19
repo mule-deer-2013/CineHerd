@@ -1,7 +1,10 @@
 class PostsController < ApplicationController
 
+include SessionsHelper
+
   def index
     @posts = Post.all
+    @user = current_user || User.new
   end
 
   def new
