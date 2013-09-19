@@ -44,7 +44,28 @@ feature 'Posts' do
          click_button "Create Post"
        }.to change(Post, :count).by(1)
        # page.should have_content "Post was successfully saved."
-
    end
   end
+
+  context "#show" do
+    let(:post2) { Post.create(
+                    user_id: 8,
+                    title: "nightime",
+                    content: "it's late")}
+    it "can see a post title" do
+      visit post_path(post2.id)
+      page.should have_content("nightime")
+
+    end
+
+    it "can see a post content" do
+      visit post_path(post2.id)
+      page.should have_content("it's late")
+    end
+
+    it "can see a post author" do
+      pending
+    end
+  end
+
 end
