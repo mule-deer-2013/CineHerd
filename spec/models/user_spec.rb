@@ -2,7 +2,7 @@
 describe User do
   let(:user) { User.create( username: "Ddoyd", password: "dog") }
   
-  it "can be created." do
+  it "can be created" do
     expect(user).to be_an_instance_of User
   end
 
@@ -10,12 +10,12 @@ describe User do
     expect(user.username).not_to eq(nil)
   end
 
-  it "should have a password_hash" do
-    expect(user.password_hash).not_to eq(nil)
+  it "should have a password_digest" do
+    expect(user.password_digest).not_to eq(nil)
   end
 
-  it "should store a Bcrypt object as a password_hash" do
-    expect(user.password_hash).to be_an_instance_of (BCrypt::Password)
+  it "should store a Bcrypt object as a password_digest" do
+    expect(user.password_digest).to be_an_instance_of (BCrypt::Password)
   end
 
   it "should authenticate with the correct password" do
@@ -25,4 +25,12 @@ describe User do
   it "should not authenticate with an incorrect password" do
     expect(user.authenticate?('zanzibar')).to eq(false)
   end
+
+  it "should be able to choose a new password" do
+    user.password = 'cat'
+    user.save
+    expect(user.authenticate?('cat')).to eq(true)
+  end
+
+
 end
