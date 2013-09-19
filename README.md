@@ -26,3 +26,7 @@ post_id: 3
 root_id: 1
 parent_id: 2
 
+User signup page exists, but it isn't currently linked to from the root or navbar. Navigate directly there with:
+
+localhost:3000/users/new
+
