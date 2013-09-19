@@ -5,11 +5,11 @@ module SessionsHelper
   end
 
   def current_user
-    User.find(session[:user_id])
+    User.find(session[:user_id]) if logged_in?
   end
 
   def logged_in?
-    true if current_user
+    true if session[:user_id]
   end
 
 end

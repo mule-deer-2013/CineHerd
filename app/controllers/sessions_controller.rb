@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     if User.find_by_username(params[:username])
       @user = User.find_by_username(params[:username])
       if @user.authenticate(params[:password])
-        login(@username)
+        login(@user)
         redirect_to root_path
       else
         # redirect somewhere with login error message
@@ -18,6 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.clear
+    redirect_to root_path
   end
   
 end
