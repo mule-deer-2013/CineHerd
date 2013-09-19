@@ -3,8 +3,8 @@ class PostsController < ApplicationController
 include SessionsHelper
 
   def index
-    @posts = Post.all
     @user = current_user || User.new
+    @questions = Post.where(parent_id: nil)
   end
 
   def new
@@ -22,8 +22,9 @@ include SessionsHelper
   end
 
   def show
-    @post = Post.find(params[:id])
+    @question = Post.find(params[:id])
+    @answers = Post.where(:parent_id => params[:id]).where(:root_id => params[:id]).where(:parent_id => !nil)
+    @comments = Post.where(:root_id => params[:id]).where(:parent_id != :root_id)
   end
 
 end
-
