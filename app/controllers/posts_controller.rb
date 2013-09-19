@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+    @questions = Post.where(parent_id: nil)
   end
 
   def new
@@ -19,8 +19,9 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @question = Post.find(params[:id])
+    @answers = Post.where(:parent_id => params[:id]).where(:root_id => params[:id]).where(:parent_id => !nil)
+    @comments = Post.where(:root_id => params[:id]).where(:parent_id != :root_id)
   end
 
 end
-
