@@ -2,8 +2,8 @@
 <h1>new.html.erb</h1>
 
 <%= form_for @user do |user_form| %>
-  <%= user_form.text_field :username, :placeholder => "Username", :id => "username" %><br>
-  <%= user_form.text_field :email, :placeholder => "Email", :id => "email" %><br>
-  <%= user_form.password_field :password, :placeholder => "Password", :id => "password" %><br>
+  <%= user_form.text_field :username, :placeholder => "Username", :id => "signup_username" %><br>
+  <%= user_form.text_field :email, :placeholder => "Email", :id => "signup_email" %><br>
+  <%= user_form.password_field :password, :placeholder => "Password", :id => "signup_password" %><br>
   <%= user_form.submit "Create User" %><br>
 <% end %>

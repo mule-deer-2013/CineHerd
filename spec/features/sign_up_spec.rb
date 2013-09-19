@@ -11,25 +11,23 @@ feature 'Sign-up' do
     end
     context "with invalid info" do
       it "should raise error when password is absent" do
-        fill_in 'username', with: "Lloyd"
-        fill_in 'email', with: "lloyd@lloyd.com"
+        fill_in 'signup_username', with: "Lloyd"
+        fill_in 'signup_email', with: "lloyd@lloyd.com"
         expect{ click_on 'Create User' }.to raise_error
       end
 
       it "should raise error when username is absent" do
-        fill_in 'email', with: "lloyd@lloyd.com"
-        fill_in 'password', with: "lloyd"
-        # expect(User.last.username).to eq("Lloyd")
+        fill_in 'signup_email', with: "lloyd@lloyd.com"
+        fill_in 'signup_password', with: "lloyd"
         expect{ click_on 'Create User' }.to raise_error
       end
     end
 
     context "with valid info" do
       it "should create user when form is submitted" do
-        fill_in 'username', with: "Lloyd"
-        fill_in 'email', with: "lloyd@lloyd.com"
-        fill_in 'password', with: "lloyd"
-        # expect(User.last.username).to eq("Lloyd")
+        fill_in 'signup_username', with: "Lloyd"
+        fill_in 'signup_email', with: "lloyd@lloyd.com"
+        fill_in 'signup_password', with: "lloyd"
         expect{ click_on 'Create User' }.to change{User.count}.by(1)
       end
     end

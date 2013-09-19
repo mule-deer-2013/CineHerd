@@ -9,12 +9,4 @@ class User < ActiveRecord::Base
 
   include BCrypt
 
-  def authenticate?(password)
-    if self.password == password
-      true
-    else
-      false
-    end
-  end
-
 end

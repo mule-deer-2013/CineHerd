@@ -19,17 +19,17 @@ describe User do
   end
 
   it "should authenticate with the correct password" do
-    expect(user.authenticate?('dog')).to eq(true)
+    expect(user.authenticate('dog')).to eq(user)
   end
 
   it "should not authenticate with an incorrect password" do
-    expect(user.authenticate?('zanzibar')).to eq(false)
+    expect(user.authenticate('zanzibar')).not_to eq(user)
   end
 
   it "should be able to choose a new password" do
     user.password = 'cat'
     user.save
-    expect(user.authenticate?('cat')).to eq(true)
+    expect(user.authenticate('cat')).to eq(user)
   end
 
 
