@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  include SessionsHelper
+
   def show
 
   end
@@ -12,6 +14,8 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.password = params[:password]
     @user.save!
+    login(@user)
+    redirect_to root_path
   end
 
   
