@@ -27,6 +27,7 @@ feature 'Posts' do
     it "can redirect to post by clicking post title" do
       visit '/'
       click_link(title)
+      page.current_path.should == post_path(post.id)
     end
   end
 
