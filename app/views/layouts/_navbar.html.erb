@@ -3,18 +3,22 @@
     <div class='navbar-header'>
       <a class='navbar-brand'>CineHerd</a>
     </div>
-      <%= form_tag sessions_path, :class => 'navbar-form navbar-right' do %>
-        <% if logged_in? %>
-          <%=link_to "Sign Out", '/signout', :method => :delete, :class => "btn btn-danger", :id => 'signout', :confirm => "Are you sure ?"%>  
-        <% else %>
-          <div class='form-group'>
-            <%= text_field_tag(:username, nil, placeholder: "Username", class: 'form-control') %>
-          </div>
-          <div class='form-group'>
-            <%= text_field_tag(:password, nil, placeholder: "Password", type: 'password', class: 'form-control') %>
-          </div>
-          <%= submit_tag("Sign In", :class => 'btn btn-success', :id => 'sign_in') %>
-        <% end %>
-      <% end %>
+    <%= form_tag sessions_path, :class => 'navbar-form navbar-right' do %>
+    <% if logged_in? %>
+    <%=link_to "Sign Out", '/signout', :method => :delete, :class => "btn btn-danger", :id => 'signout', :confirm => "Are you sure ?"%>
+    <% else %>
+    <div class='form-group'>
+      <%= text_field_tag(:username, nil, placeholder: "Username", class: 'form-control') %>
+    </div>
+    <div class='form-group'>
+      <%= text_field_tag(:password, nil, placeholder: "Password", type: 'password', class: 'form-control') %>
+    </div>
+    <%= submit_tag("Sign In", :class => 'btn btn-success', :id => 'sign_in') %>
+    <div class='form-group'>
+      <%= link_to 'Sign Up', new_user_path, class: 'btn btn-success', id: 'modal_link' %>
+
+    </div>
+    <% end %>
+    <% end %>
   </div>
 </nav>

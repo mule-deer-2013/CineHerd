@@ -1,2 +1,22 @@
-<%= @post.title %>
-<%= @post.content %>
+<h3><%= @question.title %></h3>
+<%= @question.content %>
+by <%= User.find(@question.user_id).username %>
+
+<div class="answer_container">
+<% @answers.each do |post| %>
+  <h4><%= post.title %></h4>
+  <p> <%= post.content %> </p>
+
+  <div class = "comment_container">
+
+    <% comments_for_given_quest(post).each do |com| %>
+      <p class = "comment"><%= com.content %></p>
+    <% end %>
+
+
+  </div>
+
+<% end %>
+</div>
+
+<%= link_to "Add a comment", {"action"=>"new", "controller"=>"posts", "question"=>@question.id} %>

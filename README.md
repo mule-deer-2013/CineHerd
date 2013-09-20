@@ -5,7 +5,7 @@ Our [trello board](https://trello.com/b/1ObtqHqL/stackexchange) is hosted at: ht
 
 Please take a second to look over all of our cards and comments—
 
-We'd like to add response functionality for our posts. There's a small catch—our schema is such that responses and posts are designed to be the same object. The main post for any given thread should have a parent_id and a root_id attribute that are set to nil. 
+We'd like to add response functionality for our posts. There's a small catch—our schema is such that responses and posts are designed to be the same object. The main post for any given thread should have a parent_id and a root_id attribute that are set to nil.
 
 Any direct responses to that post (say, the post with post_id of 1) should have a root_id and parent_id set to reference that post (1). (Let's assume our response has a post_id of 2)
 
@@ -17,14 +17,14 @@ root_id: nil
 parent_id: nil
 
 POST 2 (DIRECT RESPONSE)
-post_id: 2
+post_id: 4
 root_id: 1
 parent_id: 1
 
 POST 3 (COMMENT TO DIRECT RESPONSE)
-post_id: 3
+post_id: 5
 root_id: 1
-parent_id: 2
+parent_id: 4
 
 User signup page exists, but it isn't currently linked to from the root or navbar. Navigate directly there with:
 
