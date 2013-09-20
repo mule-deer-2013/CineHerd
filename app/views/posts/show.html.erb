@@ -1,2 +1,9 @@
 <%= @post.title %>
 <%= @post.content %>
+
+<p><strong>Cinemagraph!</strong></p>
+<% if @post.has_cinemagraph? %>
+  <%= image_tag @post.cinemagraph_path %>
+<% else %>
+  <p>No cinemagraph found. Boo.</p>
+<% end %>
