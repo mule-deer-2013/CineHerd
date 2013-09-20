@@ -19,8 +19,6 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       flash[:notice] = @user.errors.full_messages
-      p "HAAAAAAAY"
-      p flash[:notice]
       redirect_to root_path
     end
   end
