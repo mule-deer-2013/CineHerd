@@ -6,6 +6,8 @@ class Post < ActiveRecord::Base
 
   after_save :store_cinemagraph
 
+  include MiniMagick
+
   def cinemagraph=(file_data)
     unless file_data.blank?
       @file_data = file_data
@@ -35,7 +37,14 @@ class Post < ActiveRecord::Base
       File.open(cinemagraph_filename, 'wb') do |f|
         f.write(@file_data.read)
       end
+      resize_cinemagraph(cinemagraph_filename)
       @file_data = nil
     end
+  end
+
+  def resize_cinemagraph(cinemagraph)
+    image = MiniMagick::Image.open(cinemagraph)
+      image.resize("600x600")
+      image.write(cinemagraph)
   end
 end
