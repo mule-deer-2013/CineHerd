@@ -32,7 +32,7 @@ class Post < ActiveRecord::Base
   def store_cinemagraph
     if @file_data
       FileUtils.mkdir_p CINEMAGRAPH_STORAGE
-      FILE.open(cinemagraph_filename, 'wb') do |f|
+      File.open(cinemagraph_filename, 'wb') do |f|
         f.write(@file_data.read)
       end
       @file_data = nil
