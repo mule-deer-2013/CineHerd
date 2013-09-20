@@ -33,17 +33,10 @@ ActiveRecord::Schema.define(:version => 20130920221548) do
     t.integer  "root_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "extension"
   end
 
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
-
-  create_table "roots", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "title"
-    t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
   create_table "users", :force => true do |t|
     t.string   "username"
