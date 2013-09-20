@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   include SessionsHelper
 
   def show
-
   end
 
   def new
@@ -18,5 +17,5 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-  
+
 end
