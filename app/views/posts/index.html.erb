@@ -1,4 +1,11 @@
 <div class="main_page">
+  <div class="errors">
+    <% if flash[:notice] %>
+    <% flash[:notice].each do |notice| %>
+    <%= notice %><br />
+    <% end %>
+    <% end %>
+  </div>
   <h1> All Questions</h1>
   <ul>
     <% @questions.each do |post| %>
