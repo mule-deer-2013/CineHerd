@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
+  include SessionsHelper
 
   def index
+    @user = current_user || User.new
     @questions = Post.where(parent_id: nil)
   end
 

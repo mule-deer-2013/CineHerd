@@ -1,5 +1,6 @@
 <h3><%= @question.title %></h3>
 <%= @question.content %>
+by <%= User.find(@question.user_id).username %>
 
 <div class="answer_container">
 <% @answers.each do |post| %>
