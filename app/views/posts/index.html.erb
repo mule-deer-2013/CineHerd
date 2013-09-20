@@ -1,14 +1,19 @@
 <div class="main_page">
   <h1> All Questions</h1>
+
   <ul>
     <% @questions.each do |post| %>
       <li><%= link_to post.title, post_path(post.id) %></li>
     <% end %>
   </ul>
+
 </div>
+
+
 
 <% if logged_in? %>
 <%= link_to "Create new post" , new_post_path %>
 <% end %>
+
 
 <%= render partial: 'users/signup' %>

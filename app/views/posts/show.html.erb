@@ -13,7 +13,10 @@ by <%= User.find(@question.user_id).username %>
       <p class = "comment"><%= com.content %></p>
     <% end %>
 
+
   </div>
 
 <% end %>
 </div>
+
+<%= link_to "Add a comment", {"action"=>"new", "controller"=>"posts", "question"=>@question.id} %>

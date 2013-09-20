@@ -4,6 +4,7 @@
   <%= f.text_field  :title %>
   <%= f.label  :content %>
   <%= f.text_field  :content %>
+  <%= hidden_field_tag 'question', params[:question] %>
   <%= f.submit "Create Post" %>
 
 <% end %>
