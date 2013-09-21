@@ -1,7 +1,9 @@
 
 describe User do
+  it { should have_many :comments }
+
   let(:user) { User.create( username: "Ddoyd", password: "dog") }
-  
+
   it "can be created" do
     expect(user).to be_an_instance_of User
   end

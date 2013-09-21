@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130918183521) do
+ActiveRecord::Schema.define(:version => 20130920221548) do
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "content"
+    t.integer  "parent_id"
+    t.integer  "root_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
@@ -21,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20130918183521) do
     t.integer  "root_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "extension"
   end
 
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
@@ -34,14 +47,11 @@ ActiveRecord::Schema.define(:version => 20130918183521) do
   end
 
   create_table "votes", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "post_id"
     t.boolean  "type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "votable_id"
+    t.string   "votable_type"
   end
-
-  add_index "votes", ["post_id"], :name => "index_votes_on_post_id"
-  add_index "votes", ["user_id"], :name => "index_votes_on_user_id"
 
 end

@@ -1,16 +1,16 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
-gem 'sqlite3'
+gem 'pg'
 gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
-gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/bootstrap-rails', :branch => '3.0.0'
+gem 'mini_magick'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'uglifier', '>= 1.0.3'
+  gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/bootstrap-rails', :branch => '3.0.0'
 end
-
 
 group :test, :development do
   gem "rspec-rails", "~> 2.0"

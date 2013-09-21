@@ -1,9 +1,11 @@
 <%= form_for @post do |f| %>
 
-  <%= f.label  :title %>
-  <%= f.text_field  :title %>
-  <%= f.label  :content %>
-  <%= f.text_field  :content %>
+  <%= f.label  :title %><br>
+  <%= f.text_field  :title %><br>
+  <%= f.label  :content %><br>
+  <%= f.text_field  :content %><br>
+  <%= f.label :cinemagraph %><br>
+  <%= f.file_field :cinemagraph %><br>
   <%= f.submit "Create Post" %>
 
 <% end %>

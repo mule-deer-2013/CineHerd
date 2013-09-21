@@ -12,8 +12,9 @@ class PostsController < ApplicationController
     @post = Post.new(params[:post])
     @post.user_id = 1
       if @post.save
-        redirect_to root_path
+        redirect_to post_path(@post)
       else
+        @errors = @post.errors.full_messages
         redirect_to new_post_path
       end
   end
