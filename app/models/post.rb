@@ -24,7 +24,7 @@ class Post < ActiveRecord::Base
   end
 
   def has_cinemagraph?
-    File.exists? cinemagraph_filename
+    File.exists?(cinemagraph_filename)
   end
 
   CINEMAGRAPH_STORAGE = File.join(Rails.root, 'public', 'cinemagraph_storage')
@@ -44,6 +44,7 @@ class Post < ActiveRecord::Base
 
   def resize_cinemagraph(cinemagraph)
     image = MiniMagick::Image.open(cinemagraph)
+      image.coalesce
       image.resize("600x600")
       image.write(cinemagraph)
   end
