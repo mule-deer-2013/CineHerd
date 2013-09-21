@@ -1,2 +1,7 @@
 <%= @post.title %>
 <%= @post.content %>
+<div>
+  <% if logged_in? %>
+    <%= link_to "Add a Comment", new_post_comment_path(@post) %>
+  <% end %>
+</div>
