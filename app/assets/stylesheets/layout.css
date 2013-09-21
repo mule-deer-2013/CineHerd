@@ -2,6 +2,14 @@
   margin-top: 80px;
 }
 
+.signup-form {
+  margin-left:200px;
+}
+
+.signup-heading{
+  text-align: center;
+}
+
 .modal-body {
   background-color: white;
   width: 50%;
