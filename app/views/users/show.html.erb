@@ -1,2 +1,4 @@
 <h1><%= @user.username %></h1>
+<h2><%= @user.email %></h2>
 
+<%= image_tag gravatar_for(@user), :class => 'profile_pic' %>
