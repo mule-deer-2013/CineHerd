@@ -4,5 +4,5 @@ var show_the_modal = function(e){
 }
 
 $(document).ready(function(){
-  $('#modal_link').on('click',show_the_modal)
+  $('#modal_link').on('click', show_the_modal)
 });
