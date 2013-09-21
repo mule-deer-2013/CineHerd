@@ -1,7 +1,17 @@
 <%= @post.title %>
 <%= @post.content %>
+<<<<<<< HEAD
 <div>
   <% if logged_in? %>
     <%= link_to "Add a Comment", new_post_comment_path(@post) %>
   <% end %>
 </div>
+=======
+
+<p><strong>Cinemagraph!</strong></p>
+<% if @post.has_cinemagraph? %>
+  <%= image_tag @post.cinemagraph_path %>
+<% else %>
+  <p>No cinemagraph found. Boo.</p>
+<% end %>
+>>>>>>> master
