@@ -4,7 +4,9 @@ StackRails::Application.routes.draw do
 
   resources :sessions, only: [:create]
 
-  resources :posts, only: [:new, :create, :show]
+  resources :posts, only: [:new, :create, :show] do
+    resources :comments, only: [:new, :create]
+  end
 
   match '/signout', :to => 'sessions#destroy'
 
