@@ -8,7 +8,8 @@ feature 'Posts' do
     let(:post) { Post.create(
                     user_id: user.id,
                     title: title,
-                    content: content)}
+                    content: content,
+                    extension: 'gif')}
     it "can see a link to create a new post" do
       visit '/'
       click_link("Create new post")
@@ -19,7 +20,8 @@ feature 'Posts' do
       post = Post.create(
                     user_id: 3,
                     title: "Smelly",
-                    content: "anything")
+                    content: "anything",
+                    extension: 'gif')
       visit '/'
       page.should have_content("Smelly")
     end
@@ -28,7 +30,8 @@ feature 'Posts' do
         post1 = Post.create(
                     user_id: 3,
                     title: "Groovy",
-                    content: "else")
+                    content: "else",
+                    extension: 'gif')
       visit '/'
       click_link("Groovy")
       page.current_path.should == post_path(post1.id)
@@ -51,7 +54,8 @@ feature 'Posts' do
     let(:post2) { Post.create(
                     user_id: 8,
                     title: "nightime",
-                    content: "it's late")}
+                    content: "it's late",
+                    extension: 'gif')}
     it "can see a post title" do
       visit post_path(post2.id)
       page.should have_content("nightime")

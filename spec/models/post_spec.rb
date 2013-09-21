@@ -8,7 +8,8 @@ describe Post do
     let(:post) { Post.create(
                     user_id: user.id,
                     title: title,
-                    content: content)}
+                    content: content,
+                    extension: 'gif')}
 
     it "should have a parent_id of nil" do
       post.parent_id.should be nil
