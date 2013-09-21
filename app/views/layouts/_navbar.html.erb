@@ -24,7 +24,7 @@
 
       <% if logged_in? %>
         <div class = 'navbar-text navbar-right'>
-          Welcome, 
+          Welcome,
           <%= link_to current_user.username, user_path(current_user), :id => 'user_greeting' %>!
         </div>
       <% end %>
