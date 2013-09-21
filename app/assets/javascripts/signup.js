@@ -3,6 +3,6 @@ var show_the_modal = function(e){
   $('.modal').modal('show');
 }
 
-$(document).ready(function()){
+$(document).ready(function(){
   $('#modal_link').on('click',show_the_modal)
 });
