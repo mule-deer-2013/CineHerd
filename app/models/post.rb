@@ -21,8 +21,16 @@ class Post < ActiveRecord::Base
     File.join(CINEMAGRAPH_STORAGE, "#{self.id}.#{self.extension}")
   end
 
+  def cinemagraph_still_filename
+    File.join(CINEMAGRAPH_STORAGE, "#{self.id}_still.#{self.extension}")
+  end
+
   def cinemagraph_path
     "/cinemagraph_storage/#{self.id}.#{self.extension}"
+  end
+
+  def cinemagraph_still_path
+    "/cinemagraph_storage/#{self.id}_still.#{self.extension}"
   end
 
   def has_cinemagraph?
@@ -40,14 +48,22 @@ class Post < ActiveRecord::Base
         f.write(@file_data.read)
       end
       resize_cinemagraph(cinemagraph_filename)
+      create_still(cinemagraph_filename)
       @file_data = nil
     end
   end
 
-  def resize_cinemagraph(cinemagraph)
-    image = MiniMagick::Image.open(cinemagraph)
+  def resize_cinemagraph(cinemagraph_filename)
+    image = MiniMagick::Image.open(cinemagraph_filename)
       image.coalesce
       image.resize("600x400")
-      image.write(cinemagraph)
+      image.write(cinemagraph_filename)
+  end
+
+  def create_still(cinemagraph_filename)
+    image = MiniMagick::Image.open(cinemagraph_filename)
+    image.collapse!
+    image.colorspace("Gray")
+    image.write(cinemagraph_still_filename)
   end
 end
