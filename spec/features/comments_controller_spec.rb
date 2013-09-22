@@ -6,7 +6,7 @@ feature 'Comments' do
     before(:each) { login(comment.user) }
 
     it "should have a link" do
-      visit post_path(comment.post)
+      visit post_path(comment.post.id)
       page.should have_content("Add a Comment")
     end
 
