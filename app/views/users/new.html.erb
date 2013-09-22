@@ -1,9 +1,13 @@
 
-<h1>new.html.erb</h1>
+<div class ="col-md-5 col-md-offset-3" >
+  <h1 class="form-heading">
+    Join the Herd! <br />
+ </h1>
 
-<%= form_for @user do |user_form| %>
-  <%= user_form.text_field :username, :placeholder => "Username", :id => "signup_username" %><br>
-  <%= user_form.text_field :email, :placeholder => "Email", :id => "signup_email" %><br>
-  <%= user_form.password_field :password, :placeholder => "Password", :id => "signup_password" %><br>
-  <%= user_form.submit "Create User" %><br>
+    <%= form_for @user, :class => 'form-signin' do |user_form| %>
+    <%= user_form.text_field :username, :class =>'form-control', :placeholder => "Username", :id => "signup_username" %><br>
+    <%= user_form.text_field :email, :class =>'form-control', :placeholder => "Email", :id => "signup_email" %><br>
+    <%= user_form.password_field :password, :class =>'form-control', :placeholder => "Password", :id => "signup_password" %><br>
+    <%= user_form.submit "Sign Up", :class => "btn btn-lg btn-primary btn-block" %><br>
+  </div>
 <% end %>

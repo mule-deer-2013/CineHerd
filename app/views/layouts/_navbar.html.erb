@@ -1,12 +1,11 @@
 <nav class='navbar navbar-fixed-top navbar-inverse'>
   <div class='container'>
-    <div class='navbar-header'>
-      <%= link_to 'CineHerd', root_path, :class => 'navbar-brand' %>
-    </div>
+      <%= link_to 'CineHerd', root_path, class: 'navbar-brand' %>
+      <%= link_to 'About', '/layouts/about',:controller => :abouts, :method => :get, :action => :show, class: 'navbar-text' %>
 
-      <%= form_tag sessions_path, :class => 'navbar-form navbar-right' do %>
+      <%= form_tag sessions_path, class: 'navbar-form navbar-right' do %>
         <% if logged_in? %>
-          <%=link_to "Sign Out", '/signout', :method => :delete, :class => "btn btn-danger", :id => 'signout', :confirm => "Are you sure ?"%>  
+          <%=link_to "Sign Out", '/signout', :method => :delete, class: "btn btn-danger", :id => 'signout', :confirm => "Are you sure ?"%>
         <% else %>
           <div class='form-group'>
             <%= text_field_tag(:username, nil, placeholder: "Username", class: 'form-control') %>
@@ -15,14 +14,19 @@
             <%= text_field_tag(:password, nil, placeholder: "Password", type: 'password', class: 'form-control') %>
           </div>
           <%= submit_tag("Sign In", :class => 'btn btn-success', :id => 'sign_in') %>
+          <div class= 'form-group'>
+             <%= link_to 'Sign Up', '/users/new', class: 'btn btn-success'%>
+
+           </div>
         <% end %>
       <% end %>
 
       <% if logged_in? %>
         <div class = 'navbar-text navbar-right'>
-          Welcome, 
+          Welcome,
           <%= link_to current_user.username, user_path(current_user), :id => 'user_greeting' %>!
         </div>
       <% end %>
+
   </div>
 </nav>

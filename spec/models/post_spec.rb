@@ -4,7 +4,7 @@ describe Post do
   context "valid new root" do
     let(:content) { "Testing Content" }
     let(:title) { "First Title" }
-    let(:user) { User.create() }
+    let(:user) { User.create }
     let(:post) { Post.create(
                     user_id: user.id,
                     title: title,
@@ -12,11 +12,11 @@ describe Post do
                     extension: 'gif')}
 
     it "should have a parent_id of nil" do
-      post.parent_id.should be nil
+      post.parent_id.should be_nil
     end
 
     it "should have a root_id of nil" do
-      post.root_id.should be nil
+      post.root_id.should be_nil
     end
 
     it "should have a title" do

@@ -1,11 +1,14 @@
-<%= form_for @post do |f| %>
+<div class ="col-md-5 col-md-offset-3" >
 
-  <%= f.label  :title %><br>
-  <%= f.text_field  :title %><br>
-  <%= f.label  :content %><br>
-  <%= f.text_field  :content %><br>
-  <%= f.label :cinemagraph %><br>
-  <%= f.file_field :cinemagraph %><br>
-  <%= f.submit "Create Post" %>
+
+<h1 class = "form-heading"> Contribute to the Herd: </h1>
+<%= form_for @post, :html => { :class => "form-group" } do |f| %>
+
+  <%= f.text_field  :title, :placeholder => "Title", :class => "form-control" %><br>
+  <%= f.text_field  :content, :placeholder => "Description", :class => "form-control" %><br>
+  <%= f.file_field :cinemagraph, :placeholder => "Cinemagraph", :class => "form-control" %><br>
+  <%= f.submit "Post Cinemagraph", :class => "btn btn-lg btn-primary btn-block"  %>
 
 <% end %>
+
+</div>

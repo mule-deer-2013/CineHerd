@@ -1,3 +1,21 @@
 .my_container {
   margin-top: 80px;
 }
+
+.signup-form {
+  margin-left:200px;
+  text-align: center;
+}
+
+.form-heading{
+  text-align: center;
+}
+
+.modal-body {
+  background-color: white;
+  width: 50%;
+  margin: auto;
+  margin-top: 200px;
+  text-align: center;
+  border: solid 2px;
+}
