@@ -46,7 +46,7 @@ class Post < ActiveRecord::Base
   def resize_cinemagraph(cinemagraph)
     image = MiniMagick::Image.open(cinemagraph)
       image.coalesce
-      image.resize("600x600")
+      image.resize("600x400")
       image.write(cinemagraph)
   end
 end
