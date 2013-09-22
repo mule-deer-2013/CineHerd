@@ -26,19 +26,28 @@
   background-color: black;
 }
 
+.cinemagraph-img {
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
 ul{
   padding-left: 0px;
 }
+
 
 .white {
   color:white;
 }
 
-.glyphicons.down_arrow:before {
-  content: "\E213";
+.comment {
+  margin-left: 50px;
 }
-.glyphicons.up_arrow:before {
-  content: "\E214";
+
+.add-comment{
+  margin-left: 70px;
+}
+
 
 /*.modal-body {
   background-color: white;
