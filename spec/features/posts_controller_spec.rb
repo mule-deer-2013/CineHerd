@@ -4,9 +4,7 @@ feature 'Posts' do
 
   context "#index" do
     let(:post) { build(:post) }
-    before(:each) do
-      login(post.user)
-    end
+    before(:each) { login post.user }
 
     it "can see a link to create a new post" do
       visit root_path

@@ -4,9 +4,7 @@ feature 'Sign-in' do
   let(:user) { build(:user) }
 
   context "through navbar login form" do
-    before(:each) do
-      visit root_path
-    end
+    before(:each) { visit root_path }
 
     it "should display a navbar" do
       page.should have_css(".navbar")

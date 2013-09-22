@@ -2,9 +2,7 @@ require 'spec_helper'
 
 feature 'Sign-up' do
   context "on users/new sign-up page" do
-    before(:each) do
-      visit new_user_path
-    end
+    before(:each) { visit new_user_path }
 
     it "should have a sign-up form" do
       page.should have_css("input[name='commit']")
