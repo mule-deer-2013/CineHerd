@@ -10,5 +10,5 @@ describe Post do
   it { should validate_uniqueness_of :title}
 
   it { should belong_to :user }
-  it { shoud have_many :comments }
+  it { should have_many :comments }
 end
