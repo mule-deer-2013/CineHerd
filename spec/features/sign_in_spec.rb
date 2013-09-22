@@ -17,6 +17,7 @@ feature 'Sign-in' do
     end
 
     context "with valid info" do
+      let(:user) { User.create(username: 'bob', password: 'bob', email: 'bob')}
       it "should log in the user" do
         user.save
         fill_in 'username', with: 'bob'
