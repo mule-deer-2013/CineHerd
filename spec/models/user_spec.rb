@@ -1,39 +1,23 @@
+require 'spec_helper'
 
 describe User do
   it { should have_many :comments }
+  it { should have_many :posts }
+  it { should validate_presence_of :username }
+  it { should validate_presence_of :email }
+  it { should validate_presence_of :password }
 
-  let(:user) { User.create( username: "Ddoyd", password: "dog") }
-  # let(:user) { create(:user) }
+  let(:user) { build(:user) }
 
-  it "can be created" do
-    expect(user).to be_an_instance_of User
+  context "create new" do
+    it "can be created" do
+      expect(user).to be_an_instance_of User
+    end
+
+    it "should be able to choose a new password" do
+      user.password = 'cat'
+      user.save
+      expect(user.authenticate('cat')).to eq(user)
+    end
   end
-
-  it "should have a username" do
-    expect(user.username).not_to eq(nil)
-  end
-
-  it "should have a password_digest" do
-    expect(user.password_digest).not_to eq(nil)
-  end
-
-  it "should store a Bcrypt object as a password_digest" do
-    expect(user.password_digest).to be_an_instance_of (BCrypt::Password)
-  end
-
-  it "should authenticate with the correct password" do
-    expect(user.authenticate('dog')).to eq(user)
-  end
-
-  it "should not authenticate with an incorrect password" do
-    expect(user.authenticate('zanzibar')).not_to eq(user)
-  end
-
-  it "should be able to choose a new password" do
-    user.password = 'cat'
-    user.save
-    expect(user.authenticate('cat')).to eq(user)
-  end
-
-
 end
