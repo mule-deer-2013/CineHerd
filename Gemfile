@@ -16,6 +16,6 @@ group :test, :development do
   gem "rspec-rails", "~> 2.0"
   gem 'shoulda'
   gem 'capybara'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'faker'
 end
