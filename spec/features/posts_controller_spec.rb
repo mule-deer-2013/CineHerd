@@ -1,15 +1,12 @@
 require 'spec_helper'
 
 feature 'Posts' do
+  let(:user) { User.create(username: "tester", password: "123") }
+  before(:each) do
+    login(user)
+  end
+
   context "#index" do
-    let(:content) { "Testing Content" }
-    let(:title) { "First Title" }
-    let(:user) { User.create() }
-    let(:post) { Post.create(
-                    user_id: user.id,
-                    title: title,
-                    content: content,
-                    extension: 'gif')}
     it "can see a link to create a new post" do
       visit '/'
       click_link("Create new post")
