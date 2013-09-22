@@ -13,7 +13,7 @@ RSpec.configure do |config|
   config.include Capybara::DSL
   config.mock_with :rspec
   config.include AuthenticationHelper
-  FactoryGirl.find_definitions
+  config.include FactoryGirl::Syntax::Methods
 
 
   # ## Mock Framework
