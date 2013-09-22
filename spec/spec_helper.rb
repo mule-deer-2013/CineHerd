@@ -11,10 +11,9 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 RSpec.configure do |config|
 
   config.include Capybara::DSL
-
   config.mock_with :rspec
-
-FactoryGirl.find_definitions
+  config.include AuthenticationHelper
+  FactoryGirl.find_definitions
 
 
   # ## Mock Framework
