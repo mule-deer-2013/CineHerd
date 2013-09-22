@@ -21,9 +21,9 @@ FactoryGirl.define do
 	end
 
 	factory :vote do
+		votable_type "post" 
+		votable_id 1
 		type true
-		user
-		post
 	end
 
 end
