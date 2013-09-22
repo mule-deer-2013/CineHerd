@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :content, :parent_id, :root_id, :title, :user_id, :cinemagraph, :extension
+  attr_accessible :content, :title, :user_id, :cinemagraph, :extension
   validates_presence_of :content, :title, :user_id, :extension
   validates_uniqueness_of :title
 
