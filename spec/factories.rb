@@ -16,7 +16,7 @@ FactoryGirl.define do
 
 	factory :comment do
 		title Faker::Lorem.words(2..7)  # will be erasing this when we get rid of title for comments
-		body Faker::Lorem.words(15)
+		content Faker::Lorem.words(15)
 		user
 		post
 	end
