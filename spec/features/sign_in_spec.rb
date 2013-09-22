@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'Sign-in' do
-  let(:user) { User.new(username: 'bob', password: 'bob') }
+  let(:user) { build(:user) }
 
   context "through navbar login form" do
     before(:each) do
