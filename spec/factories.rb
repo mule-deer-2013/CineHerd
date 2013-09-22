@@ -15,7 +15,7 @@ FactoryGirl.define do
 	end
 
 	factory :comment do
-		content Faker::Lorem.words(15)
+		content "Wow, it captures the moment"
 		user
 		post
 	end

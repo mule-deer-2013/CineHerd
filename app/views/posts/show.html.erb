@@ -2,11 +2,24 @@
 <%= @post.content %>
 
 <p><strong>Cinemagraph!</strong></p>
-<% if @post.has_cinemagraph? %>
-  <%= image_tag @post.cinemagraph_path %>
-<% else %>
-  <p>No cinemagraph found. Boo.</p>
-<% end %>
+  <% if @post.has_cinemagraph? %>
+    <%= image_tag @post.cinemagraph_path %>
+  <% else %>
+    <p>No cinemagraph found. Boo.</p>
+  <% end %>
+
+<div>
+  <% if @comments %>
+    <ul>
+      <% @comments.each do |comment| %>
+        <li>
+          <div><%= comment %></div>
+          <div><span>username</span></div>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
 
 <div>
   <% if logged_in? %>

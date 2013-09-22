@@ -21,6 +21,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = @comments.find_by_root_id(@post.id)
   end
 
 end
