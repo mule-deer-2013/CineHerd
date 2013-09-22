@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    @user.password = params[:password]
+    @user.password = params[:user][:password]
 
     if @user.save
       login(@user)
