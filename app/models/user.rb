@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_secure_password
 
-  validates :username, presence: true
+  validates_presence_of :username, :email, :password
 
   include BCrypt
 
