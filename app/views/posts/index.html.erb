@@ -11,9 +11,13 @@
 
 
   <ul>
-<% @posts.each do |post| %>
-<li><%= link_to post.title, post_path(post.id) %></li>
- <% end %>
+    <% @posts.each do |post| %>
+      <%= image_tag post.cinemagraph_path %>
+      <!-- eventually replace with: image_tag post.cinema_still_path -->
+      <h2><%= link_to post.title, post_path(post) %></h2>
+      <p class='author'>by <%= link_to post.user.username, user_path(post.user) %></p></p>
+     <% end %>
+     <hr>
   </ul>
 </div>
 
