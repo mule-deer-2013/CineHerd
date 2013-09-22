@@ -1,7 +1,8 @@
 class Post < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :content, :title, :user_id, :cinemagraph, :extension
-  validates_presence_of :content, :title, :user_id, :extension
+  has_many :comments
+  attr_accessible :content, :title, :user, :cinemagraph, :extension
+  validates_presence_of :content, :title, :user, :extension
   validates_uniqueness_of :title
 
   after_save :store_cinemagraph
