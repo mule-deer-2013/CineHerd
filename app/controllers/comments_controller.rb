@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to post_path(params[:post_id])
     else
-      puts @comment.errors.full_messages
+      #puts @comment.errors.full_messages
       render "new"
     end
   end
