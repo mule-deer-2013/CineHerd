@@ -8,7 +8,7 @@ feature 'Posts' do
 
   context "#index" do
     it "can see a link to create a new post" do
-      visit '/'
+      visit root_path
       click_link("Create new post")
       page.current_path.should == new_post_path
     end
@@ -41,7 +41,7 @@ feature 'Posts' do
        expect {
          fill_in 'post_title',   with: "Delicious Cookies"
          fill_in 'post_content', with: "Are amazing, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."
-         click_button "Create Post"
+         click_button "Post Cinemagraph"
        }.to change(Post, :count).by(1)
        # page.should have_content "Post was successfully saved."
    end
