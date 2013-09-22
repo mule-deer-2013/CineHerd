@@ -13,7 +13,7 @@
     <ul>
       <% @comments.each do |comment| %>
         <li>
-          <div><%= comment %></div>
+          <div><%= comment.content %></div>
           <div><span>username</span></div>
         </li>
       <% end %>
