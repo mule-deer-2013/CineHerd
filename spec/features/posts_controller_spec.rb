@@ -19,7 +19,7 @@ feature 'Posts' do
                     title: "Smelly",
                     content: "anything",
                     extension: 'gif')
-      visit '/'
+      visit root_path
       page.should have_content("Smelly")
     end
 
@@ -29,7 +29,7 @@ feature 'Posts' do
                     title: "Groovy",
                     content: "else",
                     extension: 'gif')
-      visit '/'
+      visit root_path
       click_link("Groovy")
       page.current_path.should == post_path(post1.id)
     end
@@ -62,10 +62,6 @@ feature 'Posts' do
     it "can see a post content" do
       visit post_path(post2.id)
       page.should have_content("it's late")
-    end
-
-    it "can see a post author" do
-      pending
     end
   end
 
