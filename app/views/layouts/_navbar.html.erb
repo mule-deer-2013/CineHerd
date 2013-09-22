@@ -1,7 +1,7 @@
 <nav class='navbar navbar-fixed-top navbar-inverse'>
   <div class='container'>
       <%= link_to 'CineHerd', root_path, class: 'navbar-brand' %>
-      <%= link_to 'About', root_path, class: 'navbar-brand' %>
+      <%= link_to 'About', '/layouts/about',:controller => :abouts, :method => :get, :action => :show, class: 'navbar-text' %>
 
       <%= form_tag sessions_path, class: 'navbar-form navbar-right' do %>
         <% if logged_in? %>
