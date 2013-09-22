@@ -2,12 +2,12 @@
 
 
 <h1 class = "form-heading"> Contribute to the Herd: </h1>
-<%= form_for @post, :html => { :class => "form-group" } do |f| %>
+<%= form_for @post, :remote => true, :html => { :id => 'new_post_form', :class => "form-group" } do |f| %>
 
   <%= f.text_field  :title, :placeholder => "Title", :class => "form-control" %><br>
   <%= f.text_field  :content, :placeholder => "Description", :class => "form-control" %><br>
   <%= f.file_field :cinemagraph, :placeholder => "Cinemagraph", :class => "form-control" %><br>
-  <%= f.submit "Post Cinemagraph", :class => "btn btn-lg btn-primary btn-block"  %>
+  <%= f.submit "Post Cinemagraph", :id => 'new_post_button', :class => "btn btn-lg btn-primary btn-block"  %>
 
 <% end %>
 

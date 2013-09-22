@@ -1,9 +1,9 @@
-<%= @post.title %>
-<%= @post.content %>
+<h1><%= @post.title %></h1>
+<hr>
+<h5><%= @post.content %></h5>
 
-<p><strong>Cinemagraph!</strong></p>
   <% if @post.has_cinemagraph? %>
-    <%= image_tag @post.cinemagraph_path %>
+    <div class="cinemagraph-img"><%= image_tag @post.cinemagraph_path %></div>
   <% else %>
     <p>No cinemagraph found. Boo.</p>
   <% end %>
@@ -12,17 +12,19 @@
   <% if @comments %>
     <ul>
       <% @comments.each do |comment| %>
+      <div class="comment">
         <li>
-          <div><%= comment %></div>
-          <div><span>username</span></div>
+          <p><%= comment.content %></p></div>
+          <div><p>username</p></div>
         </li>
+      </div>
       <% end %>
     </ul>
   <% end %>
 </div>
 
-<div>
   <% if logged_in? %>
+<div class="add-comment">
     <%= link_to "Add a Comment", new_post_comment_path(@post) %>
   <% end %>
 </div>

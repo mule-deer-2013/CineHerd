@@ -5,10 +5,11 @@ class CommentsController < ApplicationController
   end
 
   def create
+    post = Post.find(params[:post_id])
     @comment = Comment.create(params[:comment])
     @comment.user = current_user
     @comment.parent_id = params[:post_id]
-    @comment.root_id = params[:post_id]
+    post.comments << @comment
 
     if @comment.save
       redirect_to post_path(params[:post_id])

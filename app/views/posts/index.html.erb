@@ -1,21 +1,25 @@
 
 <div>
   <h1> Cinemagraphs </h1>
-<nav>
+<!-- <nav>
     <ul class="nav nav-tabs">
   <li class="active"><a href="#">All</a></li>
   <li><a href="#">Popular</a></li>
   <li><a href="#">New</a></li>
 </ul>
-</nav>
-
+</nav> -->
 
   <ul>
     <% @posts.each do |post| %>
-      <%= image_tag post.cinemagraph_path %>
+      <div class="cinemagraph">
+       <%= image_tag post.cinemagraph_path %>
       <!-- eventually replace with: image_tag post.cinema_still_path -->
-      <h2><%= link_to post.title, post_path(post) %></h2>
-      <p class='author'>by <%= link_to post.user.username, user_path(post.user) %></p></p>
+        <div class='post-description'>
+          <h2><%= link_to post.title, post_path(post) %></h2>
+          <p class='post-author'>by <%= link_to post.user.username, user_path(post.user) %></p>
+      <span class="glyphicon glyphicon-circle-arrow-down"></span>
+        </div>
+       </div>
      <% end %>
      <hr>
   </ul>

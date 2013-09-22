@@ -29,9 +29,7 @@ feature 'Comments' do
       visit new_post_comment_path(comment.post)
       fill_in 'comment_content', with: "I disagree"
       click_button "Create Comment"
-      expect {
-        page.body
-      }.to have_content("I disagree")
+      expect(page.body).to have_content("I disagree")
     end
   end
 end
