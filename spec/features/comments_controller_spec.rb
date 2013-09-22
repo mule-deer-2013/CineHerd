@@ -14,5 +14,9 @@ feature 'Comments' do
       visit post_path(post.id)
       page.should have_content("Add a Comment")
     end
+
+    it "should redirect to post_path if saved" do
+      visit new_post_comment(post)
+    end
   end
 end

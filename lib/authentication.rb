@@ -1,5 +1,4 @@
-module SessionsHelper
-
+module Authentication
   def login(user)
     session[:user_id] = user.id
   end
@@ -11,5 +10,4 @@ module SessionsHelper
   def logged_in?
     true if session[:user_id]
   end
-
 end
