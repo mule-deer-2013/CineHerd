@@ -1,8 +1,7 @@
 <nav class='navbar navbar-fixed-top navbar-inverse'>
   <div class='container'>
-    <div class='navbar-header'>
       <%= link_to 'CineHerd', root_path, class: 'navbar-brand' %>
-    </div>
+      <%= link_to 'About', root_path, class: 'navbar-brand' %>
 
       <%= form_tag sessions_path, class: 'navbar-form navbar-right' do %>
         <% if logged_in? %>
@@ -28,5 +27,6 @@
           <%= link_to current_user.username, user_path(current_user), :id => 'user_greeting' %>!
         </div>
       <% end %>
+
   </div>
 </nav>

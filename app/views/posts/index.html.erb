@@ -1,6 +1,15 @@
 
 <div>
-  <h1> All Posts</h1>
+  <h1> Cinemagraphs </h1>
+<nav>
+    <ul class="nav nav-tabs">
+  <li class="active"><a href="#">All</a></li>
+  <li><a href="#">Popular</a></li>
+  <li><a href="#">New</a></li>
+</ul>
+</nav>
+
+
   <ul>
 <% @posts.each do |post| %>
 <li><%= link_to post.title, post_path(post.id) %></li>
