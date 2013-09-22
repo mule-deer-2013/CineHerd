@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
 
-  include SessionsHelper
-
   def create
     if User.find_by_username(params[:username])
       @user = User.find_by_username(params[:username])
@@ -20,5 +18,5 @@ class SessionsController < ApplicationController
     session.clear
     redirect_to root_path
   end
-  
+
 end
