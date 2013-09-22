@@ -30,7 +30,7 @@ feature 'Comments' do
       fill_in 'comment_content', with: "I disagree"
       click_button "Create Comment"
       expect {
-        post_path(comment.post)
+        page.body
       }.to have_content("I disagree")
     end
   end
