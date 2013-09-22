@@ -1,6 +1,6 @@
-FactoryGirl.define do 
-	
-	factory :user do 
+FactoryGirl.define do
+
+	factory :user do
 		username Faker::Name
 		sequence(:email) {|n| "email#{n}@random.com" }
 		password_digest Faker::Lorem.words(1)
