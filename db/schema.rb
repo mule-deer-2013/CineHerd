@@ -11,11 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130922065358) do
+ActiveRecord::Schema.define(:version => 20130922164642) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
-    t.string   "title"
     t.text     "content"
     t.integer  "parent_id"
     t.integer  "root_id"

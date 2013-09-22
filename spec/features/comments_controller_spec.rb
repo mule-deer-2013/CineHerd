@@ -12,6 +12,10 @@ feature 'Comments' do
 
     it "should redirect to post_path if saved" do
       visit new_post_comment_path(comment.post)
+      expect {
+         fill_in 'comment_content', with: "Snow effect is amazing, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."
+         click_button "Post Cinemagraph"
+       }.to change(Comment, :count).by(1)
     end
   end
 end
