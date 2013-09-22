@@ -18,3 +18,5 @@
 
 # Ignore all photos previously added.
 /public/cinemagraph_storage/*
+
+coverage

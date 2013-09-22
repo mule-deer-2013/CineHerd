@@ -20,4 +20,5 @@ group :test, :development do
   gem 'faker'
   gem 'database_cleaner'
   gem 'selenium-webdriver'
+  gem 'simplecov', :require => false
 end
