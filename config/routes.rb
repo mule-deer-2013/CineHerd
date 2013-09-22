@@ -9,7 +9,7 @@ StackRails::Application.routes.draw do
     resources :abouts, only: [:show]
   end
   match '/signout', :to => 'sessions#destroy'
-  match '/layouts/about', :to => 'abouts#show'
+  match '/pages/about', :to => 'pages#show'
 
   root to: "posts#index"
 end
