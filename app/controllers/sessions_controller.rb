@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.clear
-    redirect_to root_path
+    render :partial => 'layouts/navbar', layout: false
   end
 
 end
