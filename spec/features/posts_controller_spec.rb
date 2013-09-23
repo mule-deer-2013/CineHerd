@@ -39,9 +39,10 @@ feature 'Posts', js: true do
        expect {
          fill_in 'post_title',   with: "Delicious Cookies"
          fill_in 'post_content', with: "Are amazing, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."
-         # Need to figure out how to stub in an 'extension' for a new post item.
+         attach_file('file_uploader', 'public/favicon.ico')
          click_button "Post Cinemagraph"
-       }.to change(Post, :count).by(1)
+         # This test fails, not sure why. Gave it everything I had.
+       }.to change { Post.count }.by(1)
    end
   end
 
@@ -49,7 +50,6 @@ feature 'Posts', js: true do
     it "displays the post's title" do
       visit post_path(post.id)
       page.should have_content(post.title)
-
     end
 
     it "displays the post's content" do
