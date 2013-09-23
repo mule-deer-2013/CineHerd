@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130922211503) do
+ActiveRecord::Schema.define(:version => 20130923041936) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -52,5 +52,9 @@ ActiveRecord::Schema.define(:version => 20130922211503) do
     t.boolean  "upvote_or_downvote"
     t.integer  "user_id"
   end
+
+  add_index "votes", ["user_id"], :name => "index_votes_on_user_id"
+  add_index "votes", ["votable_id"], :name => "index_votes_on_votable_id"
+  add_index "votes", ["votable_type"], :name => "index_votes_on_votable_type"
 
 end
