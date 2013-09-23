@@ -16,11 +16,11 @@
           <p class='post-content'><%= @post.content %></p>
 
           <div class='vote_comment'>
-            <%= link_to raw('<i class="glyphicon glyphicon-circle-arrow-up vote-buttons"></i>'), { :controller => 'votes', :action => 'createup', post: @post } %>
+            <%= link_to raw('<i class="glyphicon glyphicon-circle-arrow-up vote-buttons"></i>'), { :controller => 'votes', :action => 'createup', post: @post, location: 'index' } %>
 
             <span class='vote-text-comment'><%= Vote.vote_count('post', @post.id) %></span>
 
-            <%= link_to raw('<i class="glyphicon glyphicon-circle-arrow-down vote-buttons"></i>'), { :controller => 'votes', :action => 'createdown', post: @post } %>
+            <%= link_to raw('<i class="glyphicon glyphicon-circle-arrow-down vote-buttons"></i>'), { :controller => 'votes', :action => 'createdown', post: @post, location: 'index' } %>
           </div>
         </div>
       </div>
