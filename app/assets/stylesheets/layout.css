@@ -82,7 +82,7 @@ margin:auto;
 .add_btn .new_post_btn {
   font-size: 20px;
   background-color: gray;
-  border-color: ;
+  border-color: gray;
 }
 
 .new_post_btn_wide {
@@ -157,6 +157,20 @@ background-color: black;
 #list_comment li {
   padding-bottom: 5px;
 }
+
+.about_text1 {
+  font-size: 14px;
+  color: gray;
+}
+.about_h4 {
+}
+
+.about_body {
+  width: 450px;
+  color:  gray;
+}
+
+
 /*.modal-body {
   background-color: white;
   width: 50%;
