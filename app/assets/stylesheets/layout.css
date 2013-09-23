@@ -49,10 +49,29 @@ margin:auto;
 .vote-text {
   color: white;
   margin:10px;
+  font-size: 30px;
 
 }
 
+.add_btn {
+  float: right;
+}
+
+.new_post_btn {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.new_post_btn_wide {
+  width: 100%;
+}
+
 .vote-buttons {
+  font-size:200%;
+}
+
+.vote-buttons_wide {
   font-size:200%;
 }
 

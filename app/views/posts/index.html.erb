@@ -1,6 +1,11 @@
+<% if logged_in? %>
+  <div class="add_btn">
+      <%= link_to '+ Upload Cinemagraph', { :controller => 'posts', :action => 'new' }, { :class => "btn btn-primary btn-block new_post_btn" } %>
+  </div>
+<% end %>
 
 <div>
-  <h1> Cinemagraphs </h1>
+<!--   <h1> Cinemagraphs </h1> -->
 <!-- <nav>
     <ul class="nav nav-tabs">
   <li class="active"><a href="#">All</a></li>
@@ -8,6 +13,7 @@
   <li><a href="#">New</a></li>
 </ul>
 </nav> -->
+  
 
   <ul>
     <% @posts.each do |post| %>
@@ -18,7 +24,7 @@
         <div class='post-description'>
 
           <h2><%= link_to post.title, post_path(post) %></h2>
-          <p class='post-author'>by <%= link_to post.user.username, user_path(post.user) %></p>
+          <p class='post-author'>posted by <%= link_to post.user.username, user_path(post.user) %></p>
 
             <div class='vote'>
               <%= link_to raw('<i class="glyphicon glyphicon-circle-arrow-up vote-buttons"></i>'), { :controller => 'votes', :action => 'createup', post: post } %>
@@ -38,5 +44,5 @@
 </div>
 
 <% if logged_in? %>
-  <h3><%= link_to "Create new post" , new_post_path%></h3>
+  <%= link_to '+ Upload Cinemagraph', { :controller => 'posts', :action => 'new' }, { :class => "btn btn-primary btn-block new_post_btn_wide" } %>
 <% end %>
