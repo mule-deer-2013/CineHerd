@@ -53,8 +53,6 @@ ActiveRecord::Schema.define(:version => 20130923041936) do
     t.integer  "user_id"
   end
 
-  add_index "votes", ["user_id"], :name => "index_votes_on_user_id"
-  add_index "votes", ["votable_id"], :name => "index_votes_on_votable_id"
-  add_index "votes", ["votable_type"], :name => "index_votes_on_votable_type"
+  add_index "votes", ["user_id", "votable_type", "votable_id"], :name => "index_votes_on_user_id_and_votable_type_and_votable_id", :unique => true
 
 end
