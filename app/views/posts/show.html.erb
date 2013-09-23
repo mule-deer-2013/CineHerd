@@ -2,29 +2,35 @@
 <hr>
 <h5><%= @post.content %></h5>
 
+
+<div class="cine_photo">
   <% if @post.has_cinemagraph? %>
     <div class="cinemagraph-img"><%= image_tag @post.cinemagraph_path %></div>
   <% else %>
     <p>No cinemagraph found. Boo.</p>
   <% end %>
+</div>
 
-<div>
+<div class="messages">
   <% if @comments %>
-    <ul>
+    <ul id="list_comment">
       <% @comments.each do |comment| %>
-      <div class="comment">
         <li>
-          <p><%= comment.content %></p></div>
-          <div><p>username</p></div>
+          <p><%= comment.content %></br>
+          username</p>
         </li>
-      </div>
       <% end %>
     </ul>
   <% end %>
 </div>
 
-  <% if logged_in? %>
-<div class="add-comment">
-    <%= link_to "Add a Comment", new_post_comment_path(@post) %>
+<% if logged_in? %>
+<div class="add_comment">
+    <%= link_to "Add a Comment", new_post_comment_path(@post), id: "comment_link", remote: true %>
   <% end %>
 </div>
+
+<div id="comment_form">
+</div>
+
+
