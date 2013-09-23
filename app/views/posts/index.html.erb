@@ -13,8 +13,7 @@
     <% @posts.each do |post| %>
 
       <div class="cinemagraph">
-       <%= image_tag post.cinemagraph_path %>
-      <!-- eventually replace with: image_tag post.cinema_still_path -->
+       <%= image_tag post.cinemagraph_still_path, :class => "still_photo" %>
         <div class='post-description'>
 
           <h2><%= link_to post.title, post_path(post) %></h2>
