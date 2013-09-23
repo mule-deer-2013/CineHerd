@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'Posts' do
 
-  context "#index" do
+  context "#index", js: true do
     let(:post) { build(:post) }
     before(:each) { login post.user }
 
@@ -18,28 +18,20 @@ feature 'Posts' do
     end
 
     it "can see all post titles" do
-      post = Post.create(
-                    user_id: 3,
-                    title: "Smelly",
-                    content: "anything",
-                    extension: 'gif')
+      post.save
       visit root_path
-      page.should have_content("Smelly")
+      page.should have_content(post.title)
     end
 
     it "can redirect to post by clicking post title" do
-        post1 = Post.create(
-                    user_id: 3,
-                    title: "Groovy",
-                    content: "else",
-                    extension: 'gif')
+      post.save
       visit root_path
-      click_link("Groovy")
-      page.current_path.should == post_path(post1.id)
+      click_link(post.title)
+      page.current_path.should == post_path(post.id)
     end
   end
 
-  context "#new" do
+  context "#new", js: true do
     let(:post) { build(:post) }
     before(:each) do
       login(post.user)
@@ -50,9 +42,9 @@ feature 'Posts' do
        expect {
          fill_in 'post_title',   with: "Delicious Cookies"
          fill_in 'post_content', with: "Are amazing, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."
+         # Need to figure out how to stub in an 'extension' for a new post item.
          click_button "Post Cinemagraph"
        }.to change(Post, :count).by(1)
-       # page.should have_content "Post was successfully saved."
    end
   end
 
