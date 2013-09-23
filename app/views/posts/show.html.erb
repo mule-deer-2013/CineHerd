@@ -44,12 +44,12 @@
               <% @comments.each do |comment| %>
                 <li>
                   <div class="grav_image">
-                    <%= image_tag gravatar_for(@user), :class => 'profile_pic' %>
+                    <%= image_tag gravatar_for(comment.user), :class => 'profile_pic' %>
                   </div>
                   <div id="comment_div_content">
                     <p>
                       <%= comment.content %></br>
-                      <em><%= @user.username %></em>
+                      <em><%= comment.user.username %></em>
                     </p>
                   </div>
                 </li>
