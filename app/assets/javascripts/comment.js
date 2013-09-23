@@ -13,7 +13,7 @@ $(function(){
       type: $data.method
     }).done(function(data){
       console.log(data.comment)
-      $('#list_comment').append('hi')
+      //$('#list_comment').append('hi')
       $('#list_comment').append(data.comment)
     })
   })

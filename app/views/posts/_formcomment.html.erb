@@ -1,0 +1,9 @@
+
+<%= form_for([@post, @comment],
+  :html => {id: "form_comment_partial",
+  :class => "form-group"}) do |f| %>
+    <%= f.text_area  :content, placeholder: "Enter your comment here...",
+              cols: 55, rows: 2, :class => "form-control" %></br>
+    <%= f.submit "Create Comment" %>
+<% end %>
+
