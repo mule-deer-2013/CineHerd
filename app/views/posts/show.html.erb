@@ -32,10 +32,11 @@
       <div id="comment_form">
       </div>
 
-      <div class="message-form">
-        <%= render "formcomment" %>
-      <div>
-
+      <% if logged_in? %>
+        <div class="message-form">
+          <%= render "formcomment" %>
+        <div>
+      <% end %>
 
       <div class="new-comment-body">
           <% if @comments %>

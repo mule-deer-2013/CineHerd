@@ -124,6 +124,10 @@ margin:auto;
   size: 10% ;
 }
 
+.new-comment-body {
+  padding-top: 40px;
+}
+
 
 /*.modal-body {
   background-color: white;
