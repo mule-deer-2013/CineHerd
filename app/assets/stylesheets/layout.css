@@ -38,7 +38,7 @@
 
 .cinemagraph {
   margin-bottom: 50px;
-  margin-top: 50px;
+  margin-top: 70px;
   background-color: black;
 }
 
@@ -72,10 +72,17 @@ margin:auto;
   float: right;
 }
 
+
 .new_post_btn {
   width: 100%;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.add_btn .new_post_btn {
+  font-size: 20px;
+  background-color: gray;
+  border-color: ;
 }
 
 .new_post_btn_wide {
@@ -97,6 +104,21 @@ margin:auto;
 .add-comment{
   margin-left: 70px;
 }
+
+.footer {
+  padding: 40px 0px 20px 40px;
+  font-size: 10px;
+  color: gray;
+  text-align: left;
+}
+
+
+/*.footer
+{
+float: bottom;
+height: 50px;
+background-color: black;
+}*/
 
 /* messages */
 
@@ -135,7 +157,6 @@ margin:auto;
 #list_comment li {
   padding-bottom: 5px;
 }
-
 /*.modal-body {
   background-color: white;
   width: 50%;
