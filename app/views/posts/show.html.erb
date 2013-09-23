@@ -16,11 +16,11 @@
           <p class='post-content'><%= @post.content %></p>
 
           <div class='vote_comment'>
-            <%= link_to raw('<i class="glyphicon glyphicon-circle-arrow-up vote-buttons"></i>'), { :controller => 'votes', :action => 'createup', post: @post } %>
+            <%= link_to raw('<i class="glyphicon glyphicon-circle-arrow-up vote-buttons"></i>'), { :controller => 'votes', :action => 'createup', post: @post, location: 'index' } %>
 
             <span class='vote-text-comment'><%= Vote.vote_count('post', @post.id) %></span>
 
-            <%= link_to raw('<i class="glyphicon glyphicon-circle-arrow-down vote-buttons"></i>'), { :controller => 'votes', :action => 'createdown', post: @post } %>
+            <%= link_to raw('<i class="glyphicon glyphicon-circle-arrow-down vote-buttons"></i>'), { :controller => 'votes', :action => 'createdown', post: @post, location: 'index' } %>
           </div>
         </div>
       </div>
@@ -41,15 +41,15 @@
       <div class="new-comment-body">
           <% if @comments %>
             <ul id="list_comment">
-              <% @comments.each do |comment| %>
+              <% @comments.reverse.each do |comment| %>
                 <li>
                   <div class="grav_image">
-                    <%= image_tag gravatar_for(@user), :class => 'profile_pic' %>
+                    <%= image_tag gravatar_for(comment.user), :class => 'profile_pic' %>
                   </div>
                   <div id="comment_div_content">
                     <p>
                       <%= comment.content %></br>
-                      <em><%= @user.username %></em>
+                      <em><%= comment.user.username %></em>
                     </p>
                   </div>
                 </li>
