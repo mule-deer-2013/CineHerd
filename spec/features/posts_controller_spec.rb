@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-feature 'Posts' do
+feature 'Posts', js: true do
+  let(:post) { create(:post) }
 
-  context "#index", js: true do
-    let(:post) { build(:post) }
+  context "#index" do
     before(:each) { login post.user }
 
     it "can see a link to create a new post" do
@@ -11,28 +11,25 @@ feature 'Posts' do
       page.should have_content("Create new post")
     end
 
-    it "can link to a new post page" do
+    it "has a link to create a new post" do
       visit root_path
       click_link("Create new post")
       page.current_path.should == new_post_path
     end
 
     it "can see all post titles" do
-      post.save
       visit root_path
       page.should have_content(post.title)
     end
 
     it "can redirect to post by clicking post title" do
-      post.save
       visit root_path
       click_link(post.title)
       page.current_path.should == post_path(post.id)
     end
   end
 
-  context "#new", js: true do
-    let(:post) { build(:post) }
+  context "#new" do
     before(:each) do
       login(post.user)
     end
@@ -49,20 +46,15 @@ feature 'Posts' do
   end
 
   context "#show" do
-    let(:post2) { Post.create(
-                    user_id: 8,
-                    title: "nightime",
-                    content: "it's late",
-                    extension: 'gif')}
-    it "can see a post title" do
-      visit post_path(post2.id)
-      page.should have_content("nightime")
+    it "displays the post's title" do
+      visit post_path(post.id)
+      page.should have_content(post.title)
 
     end
 
-    it "can see a post content" do
-      visit post_path(post2.id)
-      page.should have_content("it's late")
+    it "displays the post's content" do
+      visit post_path(post.id)
+      page.should have_content(post.content)
     end
   end
 

@@ -3,8 +3,7 @@ class Vote < ActiveRecord::Base
   belongs_to :user
 
   attr_accessible :upvote_or_downvote, :user_id, :votable_type, :votable_id
-  validates_presence_of :votable_type, :votable_id, :user_id
-  validates_inclusion_of :upvote_or_downvote, in: [true, false]
+  validates_presence_of :votable_type, :votable_id, :user_id, :upvote_or_downvote
 
   def self.vote_count(type, id)
     self.vote_up(type, id) - self.vote_down(type, id)
