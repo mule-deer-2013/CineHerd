@@ -26,7 +26,7 @@ feature 'Sign-up' do
         fill_in 'signup_username', with: "Lloyd"
         fill_in 'signup_email', with: "lloyd@lloyd.com"
         fill_in 'signup_password', with: "lloyd"
-        expect{ click_on 'Create User' }.to change{User.count}.by(1)
+        expect{ click_on 'sign_up_submit' }.to change{User.count}.by(1)
       end
     end
   end

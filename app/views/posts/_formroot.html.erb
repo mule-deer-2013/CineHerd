@@ -6,7 +6,7 @@
 
   <%= f.text_field  :title, :placeholder => "Title", :class => "form-control" %><br>
   <%= f.text_field  :content, :placeholder => "Description", :class => "form-control" %><br>
-  <%= f.file_field :cinemagraph, :placeholder => "Cinemagraph", :class => "form-control" %><br>
+  <%= f.file_field :cinemagraph, :placeholder => "Cinemagraph", :class => "form-control", :id => "file_uploader" %><br>
   <%= f.submit "Post Cinemagraph", :id => 'new_post_button', :class => "btn btn-lg btn-primary btn-block"  %>
 
 <% end %>

@@ -8,6 +8,6 @@
     <%= user_form.text_field :username, :class =>'form-control', :placeholder => "Username", :id => "signup_username" %><br>
     <%= user_form.text_field :email, :class =>'form-control', :placeholder => "Email", :id => "signup_email" %><br>
     <%= user_form.password_field :password, :class =>'form-control', :placeholder => "Password", :id => "signup_password" %><br>
-    <%= user_form.submit "Sign Up", :class => "btn btn-lg btn-primary btn-block" %><br>
+    <%= user_form.submit "Sign Up", :id => "sign_up_submit",  :class => "btn btn-lg btn-primary btn-block" %><br>
   </div>
 <% end %>
