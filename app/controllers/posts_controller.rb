@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
   def index
+    #@vote = Vote.index
     @posts = Post.all
   end
 
@@ -20,6 +21,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @vote = Vote.new
     @post = Post.find(params[:id])
     @comments = @post.comments
   end

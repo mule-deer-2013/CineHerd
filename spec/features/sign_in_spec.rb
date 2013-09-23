@@ -10,16 +10,20 @@ feature 'Sign-in' do
       page.should have_css(".navbar")
     end
 
-    context "with invalid info" do
-      pending
+    context "with invalid password", :js => true do
+      it "should not log in the user" do
+        fill_in 'username', with: user.username
+        fill_in 'password', with: "dinosaur"
+        click_on 'sign_in'
+        expect(page).to have_css('#sign_in')
+      end
     end
 
-    context "with valid info" do
+    context "with valid info", :js => true do
       let(:user) { User.create(username: 'bob', password: 'bob', email: 'bob')}
       it "should log in the user" do
-        user.save
-        fill_in 'username', with: 'bob'
-        fill_in 'password', with: 'bob'
+        fill_in 'username', with: user.username
+        fill_in 'password', with: user.password
         click_on 'sign_in'
         expect(page).to have_css('#signout')
       end

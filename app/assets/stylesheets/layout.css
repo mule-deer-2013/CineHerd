@@ -1,5 +1,12 @@
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
+
 .my_container {
   margin-top: 80px;
+}
+
+.white {
+  color: white;
+  background-color: red;
 }
 
 .signup-form {
@@ -15,9 +22,9 @@
 
 .post-description {
   float:right;
-  margin-right:210px; 
-  margin-top:110px;
-  /*text-align: center;*/
+  margin-right:20%; 
+  margin-top:10%;
+  text-align: center;
 }
 
 .cinemagraph {
@@ -32,12 +39,21 @@
 }
 
 ul{
-  padding-left: 0px;
+  padding-left: 0;
 }
 
+.vote{
+margin:auto;
+}
 
-.white {
-  color:white;
+.vote-text {
+  color: white;
+  margin:10px;
+
+}
+
+.vote-buttons {
+  font-size:200%;
 }
 
 .comment {

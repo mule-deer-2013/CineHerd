@@ -8,8 +8,11 @@ StackRails::Application.routes.draw do
     resources :comments, only: [:new, :create]
     resources :abouts, only: [:show]
   end
+
+  match '/votesup', :to => 'votes#createup'
+  match '/votesdown', :to => 'votes#createdown'
   match '/signout', :to => 'sessions#destroy'
-  match '/layouts/about', :to => 'abouts#show'
+  match '/pages/about', :to => 'pages#show'
 
   root to: "posts#index"
 end

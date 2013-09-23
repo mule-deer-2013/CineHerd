@@ -8,4 +8,5 @@ describe Comment do
   it { should validate_presence_of :user }
   it { should validate_presence_of :parent_id }
   it { should allow_mass_assignment_of :content }
+  it { should have_many :votes }
 end

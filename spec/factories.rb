@@ -10,7 +10,6 @@ FactoryGirl.define do
 		title "Coco from a balcony"
 		content "This is a famous cinemagraph by Jamie Beck & Kevin Burg"
 		extension "gif"
-		# cinemagraph { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'images', 'test_image1.gif')) }
 		user
 	end
 
@@ -21,9 +20,10 @@ FactoryGirl.define do
 	end
 
 	factory :vote do
-		type true
+		votable_type "post" 
+		votable_id 1
+		upvote_or_downvote true
 		user
-		post
 	end
 
 end

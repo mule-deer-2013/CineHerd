@@ -11,15 +11,27 @@
 
   <ul>
     <% @posts.each do |post| %>
+
       <div class="cinemagraph">
        <%= image_tag post.cinemagraph_path %>
       <!-- eventually replace with: image_tag post.cinema_still_path -->
         <div class='post-description'>
+
           <h2><%= link_to post.title, post_path(post) %></h2>
           <p class='post-author'>by <%= link_to post.user.username, user_path(post.user) %></p>
-      <span class="glyphicon glyphicon-circle-arrow-down"></span>
+
+            <div class='vote'>
+              <%= link_to raw('<i class="glyphicon glyphicon-circle-arrow-up vote-buttons"></i>'), { :controller => 'votes', :action => 'createup', post: post } %>
+               
+              <span class='vote-text'><%= Vote.vote_count('post', post.id) %></span>
+              
+              <%= link_to raw('<i class="glyphicon glyphicon-circle-arrow-down vote-buttons"></i>'), { :controller => 'votes', :action => 'createdown', post: post } %>
+           </div>
+
         </div>
+
        </div>
+
      <% end %>
      <hr>
   </ul>
