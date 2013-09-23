@@ -5,16 +5,6 @@
 <% end %>
 
 <div>
-<!--   <h1> Cinemagraphs </h1> -->
-<!-- <nav>
-    <ul class="nav nav-tabs">
-  <li class="active"><a href="#">All</a></li>
-  <li><a href="#">Popular</a></li>
-  <li><a href="#">New</a></li>
-</ul>
-</nav> -->
-  
-
   <ul>
     <% @posts.each do |post| %>
 
@@ -27,9 +17,9 @@
 
             <div class='vote'>
               <%= link_to raw('<i class="glyphicon glyphicon-circle-arrow-up vote-buttons"></i>'), { :controller => 'votes', :action => 'createup', post: post } %>
-               
+
               <span class='vote-text'><%= Vote.vote_count('post', post.id) %></span>
-              
+
               <%= link_to raw('<i class="glyphicon glyphicon-circle-arrow-down vote-buttons"></i>'), { :controller => 'votes', :action => 'createdown', post: post } %>
            </div>
 
