@@ -21,8 +21,11 @@
           <p class='post-author'>by <%= link_to post.user.username, user_path(post.user) %></p>
 
             <div class='vote'>
-              <span class="glyphicon glyphicon-circle-arrow-down vote-buttons"></span><span class='vote-text'>Num</span>
-              <span class="glyphicon glyphicon-circle-arrow-up vote-buttons"></span>
+              <%= link_to raw('<i class="glyphicon glyphicon-circle-arrow-up vote-buttons"></i>'), { :controller => 'votes', :action => 'createup', post: post } %>
+               
+              <span class='vote-text'><%= Vote.vote_count('post', post.id) %></span>
+              
+              <%= link_to raw('<i class="glyphicon glyphicon-circle-arrow-down vote-buttons"></i>'), { :controller => 'votes', :action => 'createdown', post: post } %>
            </div>
 
         </div>

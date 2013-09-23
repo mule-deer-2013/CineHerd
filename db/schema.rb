@@ -45,11 +45,11 @@ ActiveRecord::Schema.define(:version => 20130922211503) do
   end
 
   create_table "votes", :force => true do |t|
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.integer  "votable_id"
     t.string   "votable_type"
-    t.boolean  "awesomeness"
+    t.boolean  "upvote_or_downvote"
     t.integer  "user_id"
   end
 

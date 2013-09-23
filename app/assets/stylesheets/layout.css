@@ -4,6 +4,11 @@
   margin-top: 80px;
 }
 
+.white {
+  color: white;
+  background-color: red;
+}
+
 .signup-form {
   margin-left:200px;
   text-align: center;

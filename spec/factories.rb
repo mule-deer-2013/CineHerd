@@ -22,7 +22,7 @@ FactoryGirl.define do
 	factory :vote do
 		votable_type "post" 
 		votable_id 1
-		awesomeness true
+		upvote_or_downvote true
 		user
 	end
 
