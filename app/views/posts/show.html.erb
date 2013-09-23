@@ -1,11 +1,4 @@
-<div>
-  <div class='vote'>
-    <%= link_to raw('<i class="glyphicon glyphicon-circle-arrow-up vote-buttons"></i>'), { :controller => 'votes', :action => 'createup', post: @post } %>
-
-    <span class='vote-text-comment'><%= Vote.vote_count('post', @post.id) %></span>
-
-    <%= link_to raw('<i class="glyphicon glyphicon-circle-arrow-down vote-buttons"></i>'), { :controller => 'votes', :action => 'createdown', post: @post } %>
-   </div>
+<div class='main'>
 
   <ul>
       <div class="cinemagraph-comment">
@@ -15,37 +8,55 @@
           <p>No cinemagraph found. Boo.</p>
         <% end %>
 
-        <div class='post-description'>
 
+        <div class='post-description'>
           <h2><%= @post.title %></h2>
           <p class='post-author'>by <%= link_to @post.user.username, user_path(@post.user) %></p>
 
-        <% if logged_in? %>
-          <div class="add_comment">
-              <%= link_to "Add a Comment", new_post_comment_path(@post), id: "comment_link", remote: true %>
-            <% end %>
+          <div class='vote_comment'>
+            <%= link_to raw('<i class="glyphicon glyphicon-circle-arrow-up vote-buttons"></i>'), { :controller => 'votes', :action => 'createup', post: @post } %>
+
+            <span class='vote-text-comment'><%= Vote.vote_count('post', @post.id) %></span>
+
+            <%= link_to raw('<i class="glyphicon glyphicon-circle-arrow-down vote-buttons"></i>'), { :controller => 'votes', :action => 'createdown', post: @post } %>
           </div>
-
-
-          <div class="messages">
-            <% if @comments %>
-              <ul id="list_comment">
-                <% @comments.each do |comment| %>
-                  <li>
-                    <p><%= comment.content %></br>
-                    username</p>
-                  </li>
-                <% end %>
-              </ul>
-            <% end %>
-          </div>
-
-          <div id="comment_form">
-          </div>
-
         </div>
+      </div>
 
-       </div>
+
+      <div class="messages">
+      </div>
+
+      <div id="comment_form">
+      </div>
+
+      <div class="message-form">
+        <%= render "formcomment" %>
+      <div>
+
+
+      <div class="new-comment-body">
+          <% if @comments %>
+            <ul id="list_comment">
+              <% @comments.each do |comment| %>
+                <li>
+                  <div class="grav_image">
+                    <%= image_tag gravatar_for(@user), :class => 'profile_pic' %>
+                  </div>
+                  <div id="comment_div_content">
+                    <p>
+                      <%= comment.content %></br>
+                      <em><%= @user.username %></em>
+                    </p>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+      <div>
+
+
     </div>
   </ul>
 </div>
+       </div>

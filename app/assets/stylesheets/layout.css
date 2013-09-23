@@ -4,6 +4,10 @@
   margin-top: 80px;
 }
 
+.main {
+  margin-bottom: 20px;
+}
+
 .white {
   color: white;
   background-color: red;
@@ -43,11 +47,6 @@
   margin-bottom:20px;
 }
 
-.cinemagraph-comment {
-  margin-bottom: 50px;
-  margin-top: 50px;
-  background-color: lightgray;
-}
 
 ul{
   padding-left: 0;
@@ -97,6 +96,32 @@ margin:auto;
 
 .add-comment{
   margin-left: 70px;
+}
+
+/* messages */
+
+.cinemagraph-comment {
+  margin-bottom: 10px;
+  margin-top: 50px;
+  background-color: lightgray;
+}
+
+.grav_image {
+  float: left;
+}
+
+#comment_div_content {
+  padding: 0 0 0 70px;
+  height: 50px;
+  vertical-align: bottom;
+}
+
+.vote_comment{
+  margin:auto;
+}
+
+.vote_comment i {
+  size: 10% ;
 }
 
 

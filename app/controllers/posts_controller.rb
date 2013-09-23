@@ -23,7 +23,9 @@ class PostsController < ApplicationController
   def show
     @vote = Vote.new
     @post = Post.find(params[:id])
+    @comment = Comment.new()
     @comments = @post.comments
+    @user = User.find(params[:id])
   end
 
 end
