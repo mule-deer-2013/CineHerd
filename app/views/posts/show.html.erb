@@ -41,7 +41,7 @@
       <div class="new-comment-body">
           <% if @comments %>
             <ul id="list_comment">
-              <% @comments.each do |comment| %>
+              <% @comments.reverse.each do |comment| %>
                 <li>
                   <div class="grav_image">
                     <%= image_tag gravatar_for(comment.user), :class => 'profile_pic' %>
