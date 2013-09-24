@@ -4,6 +4,7 @@ feature 'Sign-up' do
   context "on users/new sign-up page" do
     before(:each) { visit new_user_path }
 
+    # REVIEW: you are repeating yourself. If you can click, then you can see it.
     it "should have a sign-up form" do
       page.should have_css("input[name='commit']")
     end

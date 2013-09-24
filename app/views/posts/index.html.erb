@@ -16,11 +16,11 @@
           <p class='post-author'>posted by <%= link_to post.user.username, user_path(post.user) %></p>
 
             <div class='vote'>
-              <%= link_to raw('<i class="glyphicon glyphicon-circle-arrow-up vote-buttons"></i>'), { :controller => 'votes', :action => 'createup', post: post } %>
+              <%= upvote_link(post) %>
 
-              <span class='vote-text'><%= Vote.vote_count('post', post.id) %></span>
+              <span class='vote-text'><%= post.vote_count %></span>
 
-              <%= link_to raw('<i class="glyphicon glyphicon-circle-arrow-down vote-buttons"></i>'), { :controller => 'votes', :action => 'createdown', post: post } %>
+              <%= downvote_link(post) %>
            </div>
 
         </div>
@@ -33,7 +33,7 @@
 </div>
 
 <% if logged_in? %>
-  <%= link_to '+ Upload Cinemagraph', { :controller => 'posts', :action => 'new' }, { :class => "btn btn-primary btn-block new_post_btn_wide" } %>
+  <%= link_to '+ Upload Cinemagraph', new_post_path, { :class => "btn btn-primary btn-block new_post_btn_wide" } %>
 <% end %>
 
 <footer class="footer">

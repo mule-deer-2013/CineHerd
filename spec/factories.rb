@@ -6,7 +6,7 @@ FactoryGirl.define do
 		password Faker::Lorem.words(1)
 	end
 
-	factory :post do
+	factory :post, :aliases => [:votable] do
 		title "Coco from a balcony"
 		content "This is a famous cinemagraph by Jamie Beck & Kevin Burg"
 		extension "gif"
@@ -20,8 +20,7 @@ FactoryGirl.define do
 	end
 
 	factory :vote do
-		votable_type "post" 
-		votable_id 1
+		votable
 		upvote_or_downvote true
 		user
 	end

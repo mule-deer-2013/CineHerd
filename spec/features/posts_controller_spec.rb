@@ -6,6 +6,7 @@ feature 'Posts', js: true do
   context "#index" do
     before(:each) { login post.user }
 
+    # you are repeating yourself.
     it "can see a link to create a new post" do
       visit root_path
       page.should have_content("Create new post")
@@ -14,18 +15,19 @@ feature 'Posts', js: true do
     it "has a link to create a new post" do
       visit root_path
       click_link("Create new post")
-      page.current_path.should == new_post_path
+      expect(page.current_path).to eq new_post_path
     end
 
     it "can see all post titles" do
       visit root_path
+      # use expect syntax
       page.should have_content(post.title)
     end
 
     it "can redirect to post by clicking post title" do
       visit root_path
       click_link(post.title)
-      page.current_path.should == post_path(post.id)
+      page.current_path.should eq post_path(post.id)
     end
   end
 
@@ -36,6 +38,7 @@ feature 'Posts', js: true do
 
    it "can create a new post" do
        visit new_post_path
+       # you have to stub file upload
        expect {
          fill_in 'post_title',   with: "Delicious Cookies"
          fill_in 'post_content', with: "Are amazing, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."

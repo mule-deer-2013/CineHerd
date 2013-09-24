@@ -6,17 +6,11 @@ class Vote < ActiveRecord::Base
   validates_presence_of :votable_type, :votable_id, :user_id
   validates_inclusion_of :upvote_or_downvote, :in => [true, false]
 
-  def self.vote_count(type, id)
-    self.vote_up(type, id) - self.vote_down(type, id)
+  def up?
+    self.upvote_or_downvote?
   end
 
-  protected
-
-  def self.vote_up(type, id)
-    self.where(votable_type: type, votable_id: id, upvote_or_downvote: true).size
-  end
-
-  def self.vote_down(type, id)
-    self.where(votable_type: type, votable_id: id, upvote_or_downvote: false).size
+  def down?
+    !self.upvote_or_downvote?
   end
 end

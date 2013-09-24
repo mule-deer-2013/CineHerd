@@ -20,6 +20,7 @@ feature 'Sign-in' do
     end
 
     context "with valid info", :js => true do
+      # use factory girl create :user, :password => 'bob'
       let(:user) { User.create(username: 'bob', password: 'bob', email: 'bob')}
       it "should log in the user" do
         fill_in 'username', with: user.username

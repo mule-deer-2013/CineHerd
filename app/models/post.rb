@@ -10,6 +10,13 @@ class Post < ActiveRecord::Base
 
   include MiniMagick
 
+  def vote_count
+    self.votes.inject(0) { |sum, vote|
+      vote.up? ? sum += 1 : sum -= 1
+      sum
+    }
+  end
+
   def cinemagraph=(file_data)
     unless file_data.blank?
       @file_data = file_data

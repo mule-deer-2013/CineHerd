@@ -1,27 +1,28 @@
-$(document).ready(function(){
-  $(".still_photo").on('mouseover', function(){
-    console.log(this)
+// use objects
+var Image = {
+  animate: function() {
     $(this).addClass('notStill')
-    setImageVars()
-    displayCinemagraph()  
-  })
-  $(".still_photo").on('mouseout', function(){
-    hideCinemagraph()
+    Image.setImageVars()
+    Image.displayCinemagraph()
+  },
+
+  displayCinemagraph: function() {
+    $('.notStill').first().attr("src", this.animated_url)
+  },
+
+  hideCinemagraph: function() {
     $(this).removeClass('notStill')
-  })
+    $('.notStill').first().attr("src", Image.gray_url)
+  },
+
+  setImageVars: function() {
+    this.gray_url = $('.notStill').first().attr("src")
+    this.extension = this.gray_url.substring(this.gray_url.length-4, this.gray_url.length)
+    this.animated_url = $('.notStill').first().attr("src").substring(0, this.gray_url.length - 10) + this.extension
+  }
+}
+
+$(document).ready(function(){
+  $(".still_photo").on('mouseover', Image.animate);
+  $(".still_photo").on('mouseout', Image.hideCinemagraph);
 })
-
-
-function displayCinemagraph(){
-  $('.notStill').first().attr("src", animated_url)
-}
-
-function hideCinemagraph(){
-  $('.notStill').first().attr("src", gray_url)
-}
-
-function setImageVars(){
-  gray_url = $('.notStill').first().attr("src")
-  extension = gray_url.substring(gray_url.length-4, gray_url.length)
-  animated_url = $('.notStill').first().attr("src").substring(0, gray_url.length - 10) + extension
-}

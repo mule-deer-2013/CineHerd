@@ -1,7 +1,10 @@
 class VotesController < ApplicationController
+  def create
+
+  end
 
   def createup
-    @vote = Vote.new(upvote_or_downvote: true, votable_id: params[:post], votable_type: "post", user_id: current_user.id )
+    @vote = Vote.new(upvote_or_downvote: true, votable_id: params[:post], votable_type: "Post", user_id: current_user.id )
     begin
       flash[:error] = @vote.errors.full_messages unless @vote.save
     rescue

@@ -12,6 +12,7 @@ describe User do
 
   context "create new" do
     it "can be created" do
+      # this is a bad test, you're testing ruby
       expect(user).to be_an_instance_of User
     end
 

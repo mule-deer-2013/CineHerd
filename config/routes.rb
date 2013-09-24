@@ -9,6 +9,8 @@ StackRails::Application.routes.draw do
     resources :abouts, only: [:show]
   end
 
+  resources :votes, :only => [:create]
+
   match '/votesup', :to => 'votes#createup'
   match '/votesdown', :to => 'votes#createdown'
   match '/signout', :to => 'sessions#destroy'
