@@ -10,7 +10,7 @@
   <ul>
       <div class="cinemagraph-comment">
         <% if @post.has_cinemagraph? %>
-          <%= image_tag @post.cinemagraph_path %>
+          <%= image_tag @post.cinemagraph.url(:medium) %>
         <% else %>
           <p>No cinemagraph found. Boo.</p>
         <% end %>
