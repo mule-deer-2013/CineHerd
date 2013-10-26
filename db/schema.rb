@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130923041936) do
+ActiveRecord::Schema.define(:version => 20131026192026) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -29,9 +29,12 @@ ActiveRecord::Schema.define(:version => 20130923041936) do
     t.integer  "user_id"
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "extension"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+    t.string   "cinemagraph_file_name"
+    t.string   "cinemagraph_content_type"
+    t.integer  "cinemagraph_file_size"
+    t.datetime "cinemagraph_updated_at"
   end
 
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
