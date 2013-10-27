@@ -2,8 +2,8 @@
 
 
 <h1 class = "form-heading"> Contribute to the Herd: </h1>
-<%= form_for @post, :remote => true, :html => { :multipart => true } do |f| %>
 
+<%= form_for @post, :remote => true, :html => { :multipart => true } do |f| %>
   <%= f.text_field  :title, :placeholder => "Title", :class => "form-control" %><br>
   <%= f.text_field  :content, :placeholder => "Description", :class => "form-control" %><br>
   <%= f.file_field :cinemagraph, :placeholder => "Cinemagraph", :class => "form-control", :id => "file_uploader" %><br>
