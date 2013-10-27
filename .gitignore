@@ -13,11 +13,19 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+logfile
 
 .DS_Store
 
 # Ignore all photos previously added.
-/public/cinemagraph_storage/*
+/public/system/*
 
 coverage
 ngrok
+
+/coverage/.resultset.json
+/coverage/.last_run.json
+
+*.rvmrc*
+/.rvmrc.*
+.ruby-version
