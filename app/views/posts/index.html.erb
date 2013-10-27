@@ -1,0 +1,41 @@
+<% if logged_in? %>
+  <div class="add_btn">
+      <%= link_to '+ Upload Cinemagraph', { :controller => 'posts', :action => 'new' }, { :class => "btn btn-primary btn-block new_post_btn" } %>
+  </div>
+<% end %>
+
+<div>
+  <ul>
+    <% @posts.each do |post| %>
+
+      <div class="cinemagraph">
+       <%= image_tag post.cinemagraph.url(:medium), :class => "still_photo" %>
+        <div class='post-description'>
+
+          <h2><%= link_to post.title, post_path(post) %></h2>
+          <p class='post-author'>posted by <%= link_to post.user.username, user_path(post.user) %></p>
+
+            <div class='vote'>
+              <%= link_to raw('<i class="glyphicon glyphicon-circle-arrow-up vote-buttons"></i>'), { :controller => 'votes', :action => 'createup', post: post } %>
+
+              <span class='vote-text'><%= Vote.vote_count('post', post.id) %></span>
+
+              <%= link_to raw('<i class="glyphicon glyphicon-circle-arrow-down vote-buttons"></i>'), { :controller => 'votes', :action => 'createdown', post: post } %>
+           </div>
+
+        </div>
+
+       </div>
+
+     <% end %>
+     <hr>
+  </ul>
+</div>
+
+<% if logged_in? %>
+  <%= link_to '+ Upload Cinemagraph', { :controller => 'posts', :action => 'new' }, { :class => "btn btn-primary btn-block new_post_btn_wide" } %>
+<% end %>
+
+<footer class="footer">
+    Copyright 2013  CineHerd Inc.
+</footer>
